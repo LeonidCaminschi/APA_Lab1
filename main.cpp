@@ -6,11 +6,11 @@
 #include "method6_Kartik.h"
 
 void functions(multiprecision::uint1024_t (*f)(uint64_t), uint64_t n, string text) {
-    cout << "Starting of the " + text + " fibonaci algorithm" << endl;
+//    cout << "Starting of the " + text + " fibonaci algorithm" << endl;
     auto start = chrono::high_resolution_clock::now();
     ios_base::sync_with_stdio(false);
 
-    cout << f(n) << endl;
+    f(n);
 
     auto end = chrono::high_resolution_clock::now();
 
@@ -18,17 +18,20 @@ void functions(multiprecision::uint1024_t (*f)(uint64_t), uint64_t n, string tex
             chrono::duration_cast<chrono::nanoseconds>(end - start).count();
 
     time_taken *= 1e-9;
-
-    cout << "Time taken: " << time_taken << setprecision(4) << " sec" << endl << endl;
+//    cout << n << " ";
+    cout << /*"Time taken: " <<*/ time_taken << setprecision(4) /*<< " sec" << endl*/ << endl;
 }
 
 int main() {
-    for (int n = 20; n <= 30; n++) {
-        functions(fib1, n, "recursive");
-        functions(fib2, n, "iteration");
-        functions(fib3, n, "matrix calculation");
-        functions(fib4, n, "matrix derived equasion");
-        functions(fib5, n, "Binet's formula");
-        functions(fib6, n+1, "Kartik's K sequence");
+    uint64_t n[] =  {501, 631, 794, 1000,
+            1259, 1585, 1995, 2512, 3162, 3981, 5012, 6310, 7943, 10000, 12589, 15849};
+
+    for (auto nr : n) {
+//        functions(fib1, nr, "recursive");
+//        functions(fib2, nr, "iterative");
+//        functions(fib3, nr, "matrix calculation");
+//        functions(fib4, nr, "matrix derived equasion");
+//        functions(fib5, nr, "Binet's formula");
+        functions(fib6, nr + 1, "Kartik's K sequence");
     }
 }

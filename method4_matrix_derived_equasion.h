@@ -2,7 +2,7 @@
 
 #include "headers.h"
 
-const uint64_t MAX = 5000;
+const uint64_t MAX = 16000;
 
 multiprecision::uint1024_t f[MAX] = {0};
 
